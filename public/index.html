@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>What's that song</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="header">Play Me a Song!</h1>
+    <button class="button" id="button">Start listening</button>
+    <img class="image" src="christmasscene.svg" alt="illustration of jo in a chair next to a fireplace listening to music">
+    <h2 id="song" class="song"></h2>
+    
+    <script>
+        function startRecording(recorder) {
+            recorder.ondataavailable = (e) => storeChunks(e, recorder);
+            recorder.start();
+            console.log(recorder.state);
+            console.log("recorder started");
+            window.setTimeout(() => {
+                recorder.stop();
+                console.log("recorder stopped");
+                startRecording(recorder);
+            }, 7 * 1000);
+        }
+
+        async function storeChunks(e, recorder) {
+            const data = await e.data.arrayBuffer();
+            const response = await postData('/what-song', data);
+            document.getElementById("song").innerHTML = response.body;
+        }
+
+        function listen() {
+            navigator.mediaDevices.getUserMedia({audio: true, video: false})
+                .then(function (stream) {
+                    const options = {sampleRate: 48000, channelCount: 2};
+                    const mediaRecorder = new window.MediaRecorder(stream, options);
+                    startRecording(mediaRecorder);
+                })
+                .catch(function (err) {
+                        console.log(`The following getUserMedia error occurred: ${err}`);
+                    }
+                );
+        }
+
+        async function postData(url = '', data) {
+            const base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(data)));
+
+            const response = await fetch(url, {
+                    method: 'POST',
+                    mode: 'same-origin',
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ bytes: base64String })
+                });
+
+            return await response.json();
+        }
+
+        document.getElementById("button").onclick = listen;
+    </script>
+</body>
+</html>
