@@ -10,8 +10,8 @@ In this repository is a node app for running audio recognition and an API for re
 Web
 
 * Configuration
-** AudD
-** Azure
+    * AudD
+    * Azure
 * Running
 * Testing
 * Usage
