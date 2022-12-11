@@ -19,7 +19,7 @@
     "azure-storage": "^2.10.3",
     "azure-storage-legacy": "^0.11.1",
     "body-parser": "latest",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "form-data": "^3.0.0",
     "jimp": "^0.8.5",
     "uuid": "^3.3.3"
