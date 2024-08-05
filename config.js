@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     "azure-account": "jumperstorageaccount",
     "azure-containerName": "my-jumper-container",
     "azure-blobStorage": "https://your-azure-storage-account.blob.core.windows.net",

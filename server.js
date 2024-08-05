@@ -1,4 +1,4 @@
-const app = require("./app");
+import app from "./app.js";
 
 // Launch the server on the port provided by our host, or 12271, if empty.
 

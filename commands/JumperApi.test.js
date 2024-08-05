@@ -1,5 +1,5 @@
-const uuid = require('uuid/v1');
-const JumperApi = require("./JumperApi");
+import uuid from 'uuid/v1';
+import JumperApi from "./JumperApi.js";
 
 describe("MusicToImageMapper", async () => {
 

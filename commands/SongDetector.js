@@ -1,8 +1,7 @@
-const cfg = require('../config');
-const axios = require("axios");
-const { StorageSharedKeyCredential } = require("@azure/storage-blob");
-const { BlobServiceClient } = require("@azure/storage-blob");
-const uuid = require('uuid/v1');
+import cfg from '../config.js';
+import axios from "axios";
+import { StorageSharedKeyCredential } from "@azure/storage-blob";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 class SongDetector {
     constructor(config = cfg, httpClient = axios, uploadAndReturnUrl = uploadToAzureBlobStorage) {
@@ -50,4 +49,4 @@ const resultDoesNotContainATitle = (result) => {
             typeof result.data.result.title == 'undefined' || result.data.result.title == null;
 };
 
-module.exports = SongDetector;
+export default SongDetector;

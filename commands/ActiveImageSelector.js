@@ -33,4 +33,4 @@ class ActiveImageSelector {
     }
 }
 
-module.exports = ActiveImageSelector;
+export default ActiveImageSelector;

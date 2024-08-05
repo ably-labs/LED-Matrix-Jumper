@@ -1,0 +1,21 @@
+{
+  "tasks": {
+    "start": "deno run --allow-read --allow-env --allow-sys server.js",
+    "devserver": "deno run --watch --inspect server.js",
+    "debug": "deno --inspect server.js",
+    "test": "vitest run"
+  },
+  "imports": {
+    "@azure/identity": "npm:@azure/identity@^1.0.0",
+    "@azure/storage-blob": "npm:@azure/storage-blob@^12.24.0",
+    "@std/assert": "jsr:@std/assert@1",
+    "axios": "npm:axios@^0.19.2",
+    "body-parser": "npm:body-parser@^1.20.2",
+    "express": "npm:express@^4.19.2",
+    "form-data": "npm:form-data@^4.0.0",
+    "jimp": "npm:jimp@^0.22.12",
+    "supertest": "npm:supertest@^7.0.0",
+    "uuid": "npm:uuid@^3.4.0",
+    "vitest": "npm:vitest@^2.0.5"
+  }
+}

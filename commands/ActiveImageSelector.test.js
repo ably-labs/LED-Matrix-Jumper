@@ -1,5 +1,5 @@
-const each = require('jest-each').default;
-const ActiveImageSelector = require("./ActiveImageSelector");
+import { expect, test } from 'vitest'
+import ActiveImageSelector from "./ActiveImageSelector.js";
 
 const sut = new ActiveImageSelector();
 
@@ -27,7 +27,7 @@ describe("ActiveImageSelector", () => {
         ["It's the Most Wonderful Time of the Year", "candy"],
         ["Rudolph the Red-Nosed Reindeer", "deer"],
         ["Frosty the Snowman", "frosty"]
-    ]).it('Maps %s to %s', (song, key) => {
+    ])('Maps %s to %s', (song, key) => {
         const returnedImageKey = sut.execute(song);
 
         expect(returnedImageKey).toBe(key);

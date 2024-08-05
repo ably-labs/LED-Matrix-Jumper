@@ -1,4 +1,4 @@
-const SongDetector = require("./SongDetector");
+import SongDetector from "./SongDetector.js";
 
 describe("Song detector", () => {
 

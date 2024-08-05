@@ -1,5 +1,5 @@
-const ActiveImageSelector = require("./ActiveImageSelector");
-const SongDetector = require("./SongDetector");
+import ActiveImageSelector from "./ActiveImageSelector.js";
+import SongDetector from "./SongDetector.js";
 
 class JumperApi {
 
@@ -37,4 +37,4 @@ class JumperApi {
     ok(value) { return { status: 200, body: value } };
 }
 
-module.exports = JumperApi;
+export default JumperApi;
